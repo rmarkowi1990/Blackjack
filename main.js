@@ -6,6 +6,10 @@ ReactDOM.render(header1, document.getElementById('header'));
 
 var Board = React.createClass({
 
+  getInitialState: function() {
+    return {};
+  },
+
   render: function() {
     var boxes = [];
 

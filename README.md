@@ -28,11 +28,17 @@ ReactDOM.render(p, document.body);
 React introduces the idea of "state". The state is a variable that allows the same tags to look different if they have different states. In React, the state is always an `object`. Your tags, or "components", can depend on this variable. Any changes to the state will trigger an update, or "re-render", of the component that depends on it. The state is convenient because it is one centralized variable from which all changes to the DOM will trickle down. For this challenge, we will use state to render different colors on a board and change them when a button is clicked.
 ![color2](./imgs/color2.png)
 
+
 ##Learning Goals
 - Generate the DOM structure using JavaScript
 - Learn React methods
 - Run a function when a button is clicked
 - Change the DOM by updating the state
+
+##Useful Links
+[React for people who know just enough jQuery to get by](http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/)
+
+[React Docs](https://facebook.github.io/react/docs/component-api.html)
 
 ##How do I get started?
 Your code will go in `main.js`. To open your page, type this command:

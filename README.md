@@ -41,11 +41,7 @@ React introduces the idea of "state". The state is a variable that allows the sa
 [React Docs](https://facebook.github.io/react/docs/component-api.html)
 
 ##How do I get started?
-Your code will go in `main.js`. To open your page, type this command:
-```
-npm start
-```
-After running it, navigate to `http://localhost:8000` in your browser. 
+Your code will go in `main.js`. Open the `index.html` to see the results.
 
 ##Challenges
 Have a look at `main.js`. Notice how an `<h1>` tag is created with the `React.createElement` method. The first argument is the type of tag. The second is an object of HTML attributes and values (also known as "props" in React). The remaining arguments are the children of this element. It is placed in the DOM with `ReactDOM.render`.

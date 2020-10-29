@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import colors from './colors';
 
 console.log(colors);
 
-const colorHeader = (
-  <h2 id="colorHead">Color Changer!</h2>
-)
+const colorHeader = <h2 id="colorHead">Color Changer!</h2>;
 ReactDOM.render(colorHeader, document.getElementById('header'));
 
 class Board extends React.Component {
@@ -21,12 +20,10 @@ class Board extends React.Component {
     const boxes = [];
     return (
       <div id="board">
-        <button className="btn">
-          New Colors!
-        </button>
+        <button className="btn">New Colors!</button>
         {boxes}
       </div>
-    )
+    );
   }
 }
 

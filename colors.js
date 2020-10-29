@@ -1,4 +1,4 @@
-var colors = [
+const colors = [
   'Black',
   'Navy',
   'DarkBlue',
@@ -141,3 +141,5 @@ var colors = [
   'Ivory',
   'White',
 ];
+
+export default colors;

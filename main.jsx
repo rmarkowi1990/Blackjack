@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import colors from './colors';
 
 console.log(colors);
 

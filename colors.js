@@ -141,5 +141,3 @@ const colors = [
   'Ivory',
   'White',
 ];
-
-export default colors;

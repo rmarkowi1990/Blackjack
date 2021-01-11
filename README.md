@@ -5,7 +5,7 @@ We'll get started with Facebook's open-source front-end JavaScript framework, Re
 HTML is static. It doesn't move around or have programming logic. If we want our web apps to have these features, we can use JavaScript. JavaScript can programmatically generate HTML elements. For example:
 
 ```javascript
-var p = document.createElement('p');
+const p = document.createElement('p');
 p.innerText = 'sup';
 document.body.appendChild(p);
 ```
@@ -22,7 +22,7 @@ generates the following element:
 Using plain JavaScript can get labor-intensive and intractable for large applications. ReactJS decreases the complications of maintaining large websites using principles like object-orientated programming and modular code.A React application is made up of "components". You can think of a React component as a collection of HTML tags, except their behavior and appearance isn't static. Using React, we can reproduce the example from above:
 
 ```javascript
-var p = <p>sup</p>;
+const p = <p>sup</p>;
 ReactDOM.render(p, document.body);
 ```
 

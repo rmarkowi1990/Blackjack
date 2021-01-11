@@ -7,8 +7,8 @@ const colorHeader = <h2 id="colorHead">Color Changer!</h2>;
 ReactDOM.render(colorHeader, document.getElementById('header'));
 
 class Board extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 

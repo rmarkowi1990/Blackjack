@@ -1,8 +1,9 @@
 const path = require('path');
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
+  mode: 'development',
   entry: './main.jsx',
   output: {
     path: path.join(__dirname, '/build'),
@@ -10,12 +11,27 @@ module.exports = {
     publicPath: '/build/'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          presets: ['@babel/env', '@babel/react']
+        }
       }
     ]
   },
+  devServer: {
+    static: {
+      publicPath: '/',
+      directory: path.resolve(__dirname)
+    },
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+     title: 'Development',
+     template: 'index.html'
+    }),
+  ],
 }

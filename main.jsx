@@ -1,29 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
 console.log(colors);
 
 const colorHeader = <h2 id="colorHead">Color Changer!</h2>;
-ReactDOM.render(colorHeader, document.getElementById('header'));
+const header = createRoot(document.getElementById('header'));
+header.render(colorHeader);
 
-class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Board = () => {
+  const [colors, setColors] = useState();
 
-  render() {
-    // notice we can render all of the tags in the array boxes by writing {boxes}.
-    // Any code appearing between curly braces in jsx will be evaluated as javascript.
-    // This allows us to do things like: <div id={myVar}>Example!</div>
-    const boxes = [];
-    return (
-      <div id="board">
-        <button className="btn">New Colors!</button>
-        {boxes}
-      </div>
-    );
-  }
+  // notice we can render all of the tags in the array boxes by writing {boxes}.
+  // Any code appearing between curly braces in jsx will be evaluated as javascript.
+  // This allows us to do things like: <div id={myVar}>Example!</div>
+  const boxes = [];
+  return (
+    <div id="board">
+      <button className="btn">New Colors!</button>
+      {boxes}
+    </div>
+  );
 }
 
-ReactDOM.render(<Board />, document.getElementById('content'));
+const root = createRoot(document.getElementById('content'));
+root.render(<Board />);

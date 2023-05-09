@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/CodesmithLLC/unit-6SB-simon#readme",
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

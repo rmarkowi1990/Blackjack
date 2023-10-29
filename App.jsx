@@ -1,55 +1,26 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import Component from './Components/Component.jsx';
 
-console.log(colors);
 
-const colorHeader = <h2 id="colorHead">Color Changer!</h2>;
-const header = createRoot(document.getElementById('header'));
-header.render(colorHeader);
 
-const objectCreator = () => {
-  const colorArr = {};
-  for (let i = 0; i < 16; i++) {
-    colorArr[i] = colors[Math.floor(Math.random() * 141)];
-  }
-  return colorArr;
-};
+function App() {
 
-const Board = () => {
-  const [colors, setColors] = useState();
-  const [boxColors, setBoxColors] = useState(objectCreator());
+  // const ["state", "setState"] = useState( "place initial state here");n
 
-  // notice we can render all of the tags in the array boxes by writing {boxes}.
-  // Any code appearing between curly braces in jsx will be evaluated as javascript.
-  // This allows us to do things like: <div id={myVar}>Example!</div>
-  const boxes = [];
-
-  for (let i = 0; i < 16; i++) {
-    boxes.push(<Box style={{ "background-color": boxColors[i] }} />);
-  }
-
-  function update() {
-    setBoxColors(objectCreator());
-  }
 
   return (
-    <div id="board">
-      <button className="btn" onClick={update} >New Colors!</button>
-      {boxes}
+    <div>
+      <h1>Hello World</h1>
+      <Component text="This is some text." />
     </div>
-  );
-};
 
-const Box = (props) => {
-
-  return (
-    <div className="box" style={props.style}>
-    </div>
   );
-};
+}
+
 
 const root = createRoot(document.getElementById('content'));
-root.render(<Board />);
+root.render(<App />);
 
 
 

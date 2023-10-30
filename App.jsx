@@ -1,19 +1,119 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import Component from './Components/Component.jsx';
+import Player from './Components/Player.jsx';
+import Deck from './Components/Deck.jsx';
+import Card from './Components/Card.jsx';
+import Dealer from './Components/Dealer.jsx'
 
 
 
 function App() {
 
-  // const ["state", "setState"] = useState( "place initial state here");n
+  const shuffled = new Deck();
+
+  const [deck, setDeck] = useState(shuffled);
+
+  const [playerHand, setPlayerHand] = useState([]);
+  const [dealerHand, setDealerHand] = useState([]);
+  const [turn, setTurn] = useState(true);
+  const [play, setPlay] = useState(false);
+  const [playerScore, setPlayerScore] = useState(0)
+
+
+
+  function deal() {
+
+    if (deck.length < 10) {
+      const reshuffle = new Deck();
+      setDeck(reshuffle);
+    }
+
+    setPlayerHand([deck[0], deck[2]]);
+    setDealerHand([deck[1], deck[3]]);
+    setDeck([...deck].slice(4));
+
+    setPlay(true);
+
+  }
+
+  function playerHit() {
+    setPlayerHand([...playerHand, deck[0]]);
+    setDeck([...deck].slice(1));
+
+  }
+
+  function playerStay(score) {
+    setPlayerScore(score)
+    setTurn(false)
+  }
+
+  function dealerHit(score) {
+    console.log("total: " + score + "player: " + playerScore)
+    if (score <= playerScore) {
+      setDealerHand([...dealerHand, deck[0]]);
+      setDeck([...deck].slice(1));
+    }
+
+  }
+
+
+
+
+  function total(arr) {
+
+    let total = 0;
+    let aces = 0;
+    const totals = [];
+
+    function recurse(totalNum, acesNum) {
+      if (acesNum <= 0) {
+        totals.push(totalNum)
+      } else {
+        recurse(totalNum + 1, acesNum - 1);
+        recurse(totalNum + 11, acesNum - 1);
+
+      }
+    }
+
+    for (let i in arr) {
+      if (arr[i].number === "A") {
+        aces++;
+      } else {
+        total += arr[i].number;
+      }
+    }
+    if (aces === 0) {
+      return total;
+    }
+
+    else {
+
+      recurse(total, aces);
+      const largestUnder = totals.filter(num => num <= 21);
+
+      if (largestUnder.length > 0) {
+        return largestUnder[largestUnder.length - 1];
+      } else {
+        return totals[0];
+      }
+
+    }
+
+  }
+
+
 
 
   return (
-    <div>
-      <h1>Hello World</h1>
-      <Component text="This is some text." />
-    </div>
+    <div id={screen}>
+      {!play && <button id="deal" onClick={deal}>Deal</button>}
+      {play && <div id="board">
+        <Dealer hand={dealerHand} total={total} turn={turn} hit={dealerHit} />
+        <Player hand={playerHand} hit={playerHit} stay={playerStay} total={total} turn={turn} />
+      </div>
+
+      }
+    </div >
 
   );
 }

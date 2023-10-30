@@ -1,0 +1,94 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 650px;
+    min-width: 800px;
+}
+
+h3 {
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%))
+}
+
+
+
+
+
+
+#board {
+    display: flex;
+    background-color: #00563B;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 650px;
+    min-width: 800px;
+    border: 3px solid white;
+    padding: 10px
+}
+
+.hand {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#playerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+
+}
+
+#dealerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    padding: 20px
+}
+
+
+
+#buttonSection {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+button {
+    height: 50px;
+    min-width: 80px;
+    font-size: 20px;
+    background-color: #00563B;
+    border: 3px white solid;
+    color: white;
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%))
+}
+
+button:hover {
+    cursor: pointer;
+    border-color: #ffe5b4;
+    color: #ffe5b4;
+}
+
+.card {
+    width: 110px;
+    height: 160px;
+    background-size: cover;
+    background-color: white;
+    outline: 5px white solid;
+    outline-offset: -1.5px;
+    border-radius: 8px;
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%))
+}

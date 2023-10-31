@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client';
 import Player from './Components/Player.jsx';
 import Deck from './Components/Deck.jsx';
 import Card from './Components/Card.jsx';
-import Dealer from './Components/Dealer.jsx'
+import Dealer from './Components/Dealer.jsx';
+import Toolbar from './Components/Toolbar.jsx';
 
 
 
@@ -17,7 +18,10 @@ function App() {
   const [dealerHand, setDealerHand] = useState([]);
   const [turn, setTurn] = useState(true);
   const [play, setPlay] = useState(false);
-  const [playerScore, setPlayerScore] = useState(0)
+  const [betScreen, setBetScreen] = useState(false)
+  const [playerScore, setPlayerScore] = useState(0);
+  const [chips, setChips] = useState(1000)
+  const [bet, setBet] = useState(0)
 
 
 
@@ -31,10 +35,30 @@ function App() {
     setPlayerHand([deck[0], deck[2]]);
     setDealerHand([deck[1], deck[3]]);
     setDeck([...deck].slice(4));
+    // setPlayerScore(total(playerHand))
+
 
     setPlay(true);
 
   }
+
+  function placeBet(betAmount) {
+    setBet(betAmount)
+    setChips(chips => chips - betAmount)
+  }
+
+
+
+
+  useEffect(() => {
+    setPlayerScore(total(playerHand))
+  }
+    , [playerHand])
+
+
+
+
+  console.log("playerscore:" + playerScore)
 
   function playerHit() {
     setPlayerHand([...playerHand, deck[0]]);
@@ -52,8 +76,15 @@ function App() {
     if (score <= playerScore) {
       setDealerHand([...dealerHand, deck[0]]);
       setDeck([...deck].slice(1));
+    } else {
+      setBetScreen(true)
     }
 
+  }
+
+
+  function betHandler() {
+    setBetScreen((betScreen) => !betScreen)
   }
 
 
@@ -104,12 +135,19 @@ function App() {
 
 
 
+
+
   return (
     <div id={screen}>
       {!play && <button id="deal" onClick={deal}>Deal</button>}
       {play && <div id="board">
-        <Dealer hand={dealerHand} total={total} turn={turn} hit={dealerHit} />
-        <Player hand={playerHand} hit={playerHit} stay={playerStay} total={total} turn={turn} />
+        <Dealer hand={dealerHand} total={total} turn={turn} hit={dealerHit} bet={betHandler} />
+        <div id="pot">
+          <div className="chipDisplay">Pot</div>
+          <div className="chipDisplay">${bet}</div>
+        </div>
+        <Player hand={playerHand} hit={playerHit} stay={playerStay} total={total} turn={turn} score={playerScore} />
+        <Toolbar turn={turn} hit={playerHit} stay={playerStay} chips={chips} score={playerScore} play={play} betScreen={betScreen} placeBet={placeBet} />
       </div>
 
       }

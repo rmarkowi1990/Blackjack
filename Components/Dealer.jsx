@@ -29,9 +29,7 @@ export default function Dealer({ hand, turn, total, hit }) {
             <div className="hand">
                 {[handDisplay]}
             </div>
-            {!turn && <h3>{total(hand)}</h3>
-
-            }
+            <h3>{!turn ? total(hand) : "-"}</h3>
         </div>
 
     )

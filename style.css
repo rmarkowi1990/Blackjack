@@ -7,10 +7,40 @@ body {
     align-items: center;
     min-height: 650px;
     min-width: 800px;
+
 }
 
 h3 {
     filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%))
+}
+
+#pot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#betForm {
+
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+
+}
+
+input {
+    height: 30px;
+    width: 100px;
+    font-size: 18px;
+    background-color: transparent;
+    border: 3px solid white;
+    color: white;
+    text-align: center;
+
 }
 
 
@@ -22,12 +52,15 @@ h3 {
     display: flex;
     background-color: #00563B;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     min-height: 650px;
     min-width: 800px;
     border: 3px solid white;
-    padding: 10px
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 650px;
+    max-width: 800px;
 }
 
 .hand {
@@ -36,12 +69,52 @@ h3 {
     gap: 15px;
 }
 
+#toolbar {
+    min-height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+#chipSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 250px;
+}
+
+.chipDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 17px;
+    color: white;
+    font-weight: 500;
+    line-height: 0%;
+    padding: 3px;
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%))
+}
+
+
+
 #playerSection {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 20px;
+    padding: 20px;
+    gap: 5px;
+    ;
 
 
 }
@@ -51,7 +124,7 @@ h3 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 200px;
+    /* height: 200px; */
     padding: 20px
 }
 
@@ -60,8 +133,19 @@ h3 {
 #buttonSection {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
-    padding: 10px;
+    width: 300px;
+
+    height: 75px;
+    /* padding: 10px; */
+
+}
+
+#rightSection {
+    width: 250px;
+    height: 75px;
 
 }
 
@@ -73,7 +157,8 @@ button {
     border: 3px white solid;
     color: white;
     border-radius: 10px;
-    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%))
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0, 50%));
+    margin: 5px;
 }
 
 button:hover {
